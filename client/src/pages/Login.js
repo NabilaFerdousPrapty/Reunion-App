@@ -29,31 +29,45 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <h2>Alumni Login</h2>
-        <p className="auth-sub">Sign in to register for the Batch 2002 reunion.</p>
-        {error && <p className="auth-error">{error}</p>}
+    <div className="min-h-[70vh] flex items-center justify-center p-5 bg-cream">
+      <div className="bg-white border border-gray-200 rounded-xl p-8 max-w-[380px] w-full shadow-sm">
+        <h2 className="text-maroon text-2xl mb-1">Alumni Login</h2>
+        <p className="text-gray-500 text-sm mb-5">
+          Sign in to register for the Batch 2002 reunion.
+        </p>
+        {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className="block mb-3 font-semibold text-sm">
             Email
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md text-sm"
+            />
           </label>
-          <label>
+          <label className="block mb-4 font-semibold text-sm">
             Password
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md text-sm"
             />
           </label>
-          <button className="btn btn-block" type="submit" disabled={loading}>
+          <button
+            className="w-full bg-maroon text-white font-semibold text-sm py-2.5 rounded-md hover:bg-maroon-dark disabled:opacity-60"
+            type="submit"
+            disabled={loading}
+          >
             {loading ? "Signing in..." : "Log In"}
           </button>
         </form>
-        <p className="auth-switch">
-          Not a member yet? <Link to="/signup">Sign up</Link>
+        <p className="text-center text-sm mt-4">
+          Not a member yet?{" "}
+          <Link to="/signup" className="text-maroon font-semibold">Sign up</Link>
         </p>
       </div>
     </div>

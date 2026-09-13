@@ -4,13 +4,15 @@ const path = require("path");
 const fs = require("fs");
 const Registrant = require("../models/Registrant");
 const adminAuth = require("../middleware/adminAuth");
+const requireAuth = require("../middleware/requireAuth");
 const upload = require("../middleware/upload");
 
 const router = express.Router();
 
-// ---------- PUBLIC: submit registration ----------
+// ---------- MEMBER (logged in): submit registration ----------
 router.post(
   "/",
+  requireAuth,
   upload.fields([
     { name: "photo", maxCount: 1 },
     { name: "paymentScreenshot", maxCount: 1 },
@@ -42,7 +44,13 @@ router.post(
         ? `/uploads/${req.files.paymentScreenshot[0].filename}`
         : undefined;
 
+      const existing = await Registrant.findOne({ user: req.userId });
+      if (existing) {
+        return res.status(409).json({ error: "You have already submitted a registration" });
+      }
+
       const registrant = await Registrant.create({
+        user: req.userId,
         name,
         fatherName,
         department,
@@ -65,6 +73,12 @@ router.post(
     }
   }
 );
+
+// ---------- MEMBER (logged in): get my own registration status ----------
+router.get("/me", requireAuth, async (req, res) => {
+  const registrant = await Registrant.findOne({ user: req.userId });
+  res.json({ registrant: registrant || null });
+});
 
 // ---------- ADMIN: list all registrants ----------
 router.get("/", adminAuth, async (req, res) => {

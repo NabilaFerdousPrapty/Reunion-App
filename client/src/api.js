@@ -8,3 +8,7 @@ export const fileBase = API_BASE; // used to prefix /uploads/... paths returned 
 export function adminHeaders(adminKey) {
   return { headers: { "x-admin-key": adminKey } };
 }
+
+export function authHeaders(token) {
+  return { headers: { Authorization: `Bearer ${token}` } };
+}

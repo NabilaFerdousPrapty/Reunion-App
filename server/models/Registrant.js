@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const registrantSchema = new mongoose.Schema(
   {
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     name: { type: String, required: true },
     fatherName: { type: String },
     department: { type: String, required: true },

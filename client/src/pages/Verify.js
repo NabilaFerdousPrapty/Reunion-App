@@ -15,23 +15,23 @@ export default function Verify() {
   }, [alumniId]);
 
   return (
-    <div className="container">
-      <div className="card" style={{ textAlign: "center" }}>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="max-w-[500px] mx-auto px-5 py-10">
+      <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm text-center">
+        {error && <p className="text-red-600 text-sm">{error}</p>}
         {registrant && (
           <>
-            <h2>✅ Verified Registered Alumni</h2>
+            <h2 className="text-maroon text-2xl mb-4">✅ Verified Registered Alumni</h2>
             {registrant.photoUrl && (
               <img
                 src={`${fileBase}${registrant.photoUrl}`}
                 alt={registrant.name}
-                style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover" }}
+                className="w-28 h-28 rounded-full object-cover mx-auto mb-3"
               />
             )}
-            <h3>{registrant.name}</h3>
-            <p>Department: {registrant.department}</p>
-            <p>Passing Year: {registrant.passingYear}</p>
-            <p>Alumni ID: {registrant.alumniId}</p>
+            <h3 className="text-lg font-semibold mb-1">{registrant.name}</h3>
+            <p className="text-gray-600 text-sm">Department: {registrant.department}</p>
+            <p className="text-gray-600 text-sm">Passing Year: {registrant.passingYear}</p>
+            <p className="text-gray-600 text-sm">Alumni ID: {registrant.alumniId}</p>
           </>
         )}
       </div>
