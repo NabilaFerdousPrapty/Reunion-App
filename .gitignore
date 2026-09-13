@@ -1,0 +1,61 @@
+# =========================
+# Dependencies
+# =========================
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+client/.env
+client/.env.*
+server/.env
+server/.env.*
+
+# =========================
+# React / Client Build
+# =========================
+client/build/
+client/dist/
+
+# =========================
+# Server Build
+# =========================
+server/dist/
+server/build/
+
+# =========================
+# Logs
+# =========================
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# =========================
+# Vercel
+# =========================
+.vercel/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
