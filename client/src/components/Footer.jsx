@@ -47,7 +47,7 @@ export default function Footer() {
 
               {/* Facebook */}
               <a
-                href="#"
+                href="/"
                 aria-label="Facebook"
                 className="w-8 h-8 rounded-full border border-[#d7a943] flex items-center justify-center text-white hover:bg-white/10 transition"
               >
@@ -61,7 +61,7 @@ export default function Footer() {
 
               {/* YouTube */}
               <a
-                href="#"
+                href="/"
                 aria-label="YouTube"
                 className="w-8 h-8 rounded-full border border-[#d7a943] flex items-center justify-center text-white hover:bg-white/10 transition"
               >
@@ -75,7 +75,7 @@ export default function Footer() {
 
               {/* Instagram */}
               <a
-                href="#"
+                href="/"
                 aria-label="Instagram"
                 className="w-8 h-8 rounded-full border border-[#d7a943] flex items-center justify-center text-white hover:bg-white/10 transition"
               >
@@ -97,7 +97,7 @@ export default function Footer() {
 
               {/* LinkedIn */}
               <a
-                href="#"
+                href="/"
                 aria-label="LinkedIn"
                 className="w-8 h-8 rounded-full border border-[#d7a943] flex items-center justify-center text-white hover:bg-white/10 transition"
               >
