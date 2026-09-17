@@ -9,6 +9,20 @@ admin approval dashboard, and QR-coded alumni verification page.
 reunion-app/
 ├── server/   Express + MongoDB API
 └── client/   React frontend
+
+Admin approves registration
+        ↓
+Backend generates invitationToken (e.g. "8f7a2c91")
+        ↓
+Generates QR encoding → https://yourdomain.com/i/8f7a2c91
+        ↓
+Generates PDF invitation (with that QR embedded in it)
+        ↓
+Saves both file paths on the Registrant document
+        ↓
+QR/link scanned anytime → /i/:token page → shows invite details + Download PDF button
+        ↓
+User logs in anytime → /my-registration → same QR + same Download PDF button (nothing regenerated)
 ```
 
 ## 1. Backend setup
@@ -47,21 +61,4 @@ The app runs on `http://localhost:3000`.
 4. Scanning that QR (or visiting the URL) shows a public verification page
    confirming the person is a registered, approved alumni.
 
-## What's intentionally simplified (MVP scope)
 
-- Admin auth is a single shared key in a header, not per-user login/JWT.
-- No real payment gateway integration — transaction IDs are manually entered
-  and screenshots manually reviewed by the admin, same as the mockup.
-- No printable alumni ID card image generation yet (currently just a data page).
-  Next step: build an `AlumniCard.js` page styled like your reference image,
-  and add a "Download as image" button using `html-to-image` or `html2canvas`.
-- No email/SMS notifications on approval.
-
-## Suggested next steps
-
-1. Style the homepage to match your reference design more closely (hero image,
-   timeline, sponsors section).
-2. Build the styled Alumni ID Card page + download-as-image button.
-3. Add JWT-based admin login instead of a shared key.
-4. Add pagination/search to the admin dashboard as registrants grow.
-5. Deploy: server to Render/Railway, client to Vercel/Netlify, DB to MongoDB Atlas.
