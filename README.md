@@ -1,4 +1,4 @@
-# Reunion Website — MERN MVP
+# Reunion Website 
 
 Basic MVP: public homepage, registration form with photo/payment-screenshot upload,
 admin approval dashboard, and QR-coded alumni verification page.
